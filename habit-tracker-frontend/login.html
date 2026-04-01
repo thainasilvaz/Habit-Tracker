@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HABIT-TRACKER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body class="bodyLoginCadastro">
+        <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Criar Conta</h1>
+                <input id="nomeCadastro" type="text" placeholder="Nome">
+                <input id="emailCadastro" type="email" placeholder="Email">
+                <input id="senhaCadastro" type="password" placeholder="Senha"> <!--o type já esconde a senha, assim como o type e-mail sugere emails já utilizados-->
+                <button type="button" onclick="cadastro()">Cadastre-se</button>
+                <span>ou cadastre-se com as redes sociais</span>
+                <div class="social-icons">
+                    <a href="#" class="icon"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="#" class="icon"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#" class="icon"><ion-icon name="logo-github"></ion-icon></a>
+                    <a href="#" class="icon"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </div>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Login</h1>
+                <input id="emailLogin" type="email" placeholder="Email">
+                <input id="senhaLogin" type="password" placeholder="Senha">
+                <a href="#">Esqueceu a senha?</a>
+                <button type="button" onclick="login()">Entrar</button>
+                <span>ou entre com as redes sociais</span>
+                <div class="social-icons">
+                    <a href="#" class="icon"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="#" class="icon"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#" class="icon"><ion-icon name="logo-github"></ion-icon></a>
+                    <a href="#" class="icon"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </div>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bem vindo de volta!</h1>
+                    <p>Entre com as suas credenciais para acessar todas as funcionalidades</p>
+                    <button type="button" class="hidden" id="login">Entrar</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Olá!</h1>
+                    <p>Entre com as suas credenciais para acessar todas as funcionalidades</p>
+                    <button type="button" class="hidden" id="register">Cadastre-se</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/habito.js"></script>
+    </body>
+</html>

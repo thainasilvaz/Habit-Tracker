@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bodyDashboard">
+    <header class="topbar">
+        <div class="logo">HabitTracker</div>
+
+        <h2 id="nomeUsuario"></h2>
+
+        <div class="usuario">
+            <span id="nomeUsuario"></span>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <main class="dashboard">
+
+    <section class="cards">
+        <div class="card" onclick="abrirModalHabitos()" style="cursor: pointer">
+                <h3>Total de hábitos</h3>
+                <p id="totalHabitos">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Streak</h3>
+                <p id="streak">0 dias</p>
+            </div>
+
+            <div class="card">
+                <h3>Concluídos hoje</h3>
+                <p id="concluidosHoje">0</p>
+        </div>
+    </section>
+
+    <section class="habitos">
+
+    <h2>Hoje</h2>
+
+    <div class="novoHabito">
+        <button onclick="abrirModal()">Novo Hábito</button>
+    </div>
+
+    <div id="modalListaHabitos" class="modal2">
+
+    <div class="modal-content2">
+
+        <h3>Todos os hábitos</h3>
+
+        <ul id="listaTodosHabitos"></ul>
+
+        <button onclick="fecharModalHabitos()">Fechar</button>
+
+    </div>
+
+    </div>
+
+    <ul id="listaHabitos"></ul> <!--one aparecerá os hábitos do dia e os botões para concluí-los (a lógica está no habito.js -> listarHabitos())-->
+
+    </section>
+
+    <!--modal para criar um novo hábito-->
+
+    <div id="modalHabito" class="modal">
+
+        <div class="modal-content">
+
+            <h3 class="title-novo-habito">Novo Hábito</h3>
+
+            <input id="nomeHabitoModal" placeholder="Nome do hábito">
+
+            <div class="diasSemana">
+                <label><input type="checkbox" value="SEG">Seg</label>
+                <label><input type="checkbox" value="TER">Ter</label>
+                <label><input type="checkbox" value="QUA">Qua</label>
+                <label><input type="checkbox" value="QUI">Qui</label>
+                <label><input type="checkbox" value="SEX">Sex</label>
+                <label><input type="checkbox" value="SAB">Sab</label>
+                <label><input type="checkbox" value="DOM">Dom</label>
+            </div>
+
+            <div class="botoes-modal">
+                <button id="botao-salvar-habito" onclick="criarHabito()">Salvar</button>
+                <button id="botao-fechar-modal" onclick="fecharModal()">Cancelar</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--modal para editar hábitos-->
+
+    <div id="modalEditarHabito" class="modal">
+
+        <div class="modal-content">
+
+            <h3>Editar Hábito</h3>
+
+            <input id="editarNomeHabito" placeholder="Nome do hábito">
+
+            <div class="diasSemana">
+                <label><input type="checkbox" value="SEG">Seg</label>
+                <label><input type="checkbox" value="TER">Ter</label>
+                <label><input type="checkbox" value="QUA">Qua</label>
+                <label><input type="checkbox" value="QUI">Qui</label>
+                <label><input type="checkbox" value="SEX">Sex</label>
+                <label><input type="checkbox" value="SAB">Sab</label>
+                <label><input type="checkbox" value="DOM">Dom</label>
+            </div>
+
+            <button onclick="salvarEdicao()">Salvar</button>
+            <button onclick="fecharModalEditar()">Cancelar</button>
+
+        </div>
+    </div>
+
+    <section class="progresso">
+
+        <h3>Progresso do dia</h3>
+
+        <div class="barra">
+            <div id="barraProgresso"></div>
+        </div>
+
+        <p id="textoProgresso"></p>
+
+    </section>
+
+    <!--GRÁFICO-->
+    <div class="grafico-container">
+        <canvas id="graficoHabitos"></canvas> <!--canvas cria uma área de desenho retangular na página web, permitindo renderizar gráficos, animações, jogos e manipular imagens dinamicamente via JavaScript-->
+    </div>
+
+
+    <!-- modal para excluir hábitos -->
+    <div id="modalDelete" class="modal">
+
+        <div class="modal-content">
+
+            <p>Deseja excluir este hábito?</p>
+
+            <div class="botoes-modal">
+                <button onclick="confirmarDelete()">Sim</button>
+                <button onclick="fecharModalDelete()">Cancelar</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--biblioteca de gráficos para desenhar dentro do canvas-->
+    <script src="js/dashboard.js"></script>
+    <script src="js/habito.js"></script>
+    <script src="js/registro.js"></script>
+    <script src="js/usuario.js"></script>
+    
+</body>
+</html>

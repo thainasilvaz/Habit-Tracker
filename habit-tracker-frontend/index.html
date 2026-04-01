@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Habit Tracker</h1>
+
+<!--CRIAR USUÁRIO-->
+
+<h2>Criar Usuário</h2>
+
+<input id="nome" placeholder="Nome">
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="senha" placeholder="Senha">
+
+<button onclick="criarUsuario()">Criar usuário</button> <!--a função criarUsuario será criada no script.js (conexão com o back end)-->
+
+
+<!--
+obs: o usuário final não vai ver uma tela de listagem de usuários, portanto, esse não é o propósito dessa funcionalidade. Então, para que serve?
+
+quando estamos desenvolvendo uma API com Sprint Boot criamos os endpoints básicos de CRUD para: testar o backend, garantir que o banco está funcionando, facilitar o debug e permitir administração futura
+-->
+
+
+<h2>Usuários cadastrados</h2>
+
+<button onclick="listarUsuarios()">
+Listar usuários
+</button>
+
+<ul id="listaUsuarios"></ul>
+
+
+<h2>Criar hábito</h2>
+
+<input id="nomeHabito" placeholder="Nome do hábito">
+
+<button onclick="criarHabito()">
+Criar hábito
+</button>
+
+
+<h2>Lista de hábitos</h2>
+
+<button onclick="listarHabitos()">
+Listar hábitos
+</button>
+
+<ul id="listaHabitos"></ul> <!--Quando listarHabitos() rodar, esse ul criará elemento <li> com o nome do hábito e o botão para concluir-->
+
+
+<script src="js/api.js"></script>
+<script src="js/usuario.js"></script>
+<script src="js/habito.js"></script>
+<script src="js/registro.js"></script>
+
+</body>
+</html>
