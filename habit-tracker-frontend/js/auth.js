@@ -50,6 +50,8 @@ async function cadastro(){
 
     container.classList.remove("active")
 
+    limparCamposCadastro()
+
     const dados = await resposta.json()
     console.log(dados)
 
@@ -96,4 +98,11 @@ async function login(){
 function validarEmail(email){
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/ //verificando se o email segue o formato básico de email usando regex
     return regex.test(email)
+}
+
+
+function limparCamposCadastro(){
+    document.getElementById("nomeCadastro").value = ""
+    document.getElementById("emailCadastro").value = ""
+    document.getElementById("senhaCadastro").value = ""
 }

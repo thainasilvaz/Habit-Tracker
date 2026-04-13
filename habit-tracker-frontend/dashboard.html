@@ -39,10 +39,10 @@
 
     <section class="habitos">
 
-    <h2>Hoje</h2>
+    <h2 id="titulo-hoje">Hoje</h2>
 
     <div class="novoHabito">
-        <button onclick="abrirModal()">Novo Hábito</button>
+        <button onclick="abrirModal()">+ Novo Hábito</button>
     </div>
 
     <div id="modalListaHabitos" class="modal2">
@@ -86,7 +86,9 @@
             <div class="botoes-modal">
                 <button id="botao-salvar-habito" onclick="criarHabito()">Salvar</button>
                 <button id="botao-fechar-modal" onclick="fecharModal()">Cancelar</button>
+                <button id="btn-ia" onclick="gerarSugestaoIA()">Sugerir hábito</button>
             </div>
+
 
         </div>
 
@@ -96,7 +98,7 @@
 
     <div id="modalEditarHabito" class="modal">
 
-        <div class="modal-content">
+        <div class="modal-content modal-medio">
 
             <h3>Editar Hábito</h3>
 
@@ -139,7 +141,7 @@
     <!-- modal para excluir hábitos -->
     <div id="modalDelete" class="modal">
 
-        <div class="modal-content">
+        <div class="modal-content modal-pequeno">
 
             <p>Deseja excluir este hábito?</p>
 

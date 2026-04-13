@@ -84,6 +84,11 @@ async function criarHabito(){
 
     const diasString = dias.join(",") //transformando o array em string 
 
+    if(!nomeHabito){
+        mostrarToast("Digite um nome para o hábito")
+        return
+    }
+
     const resposta = await fetch("http://localhost:8080/habito", { //requisição HTTP
 
         method: "POST",
@@ -144,6 +149,7 @@ function abrirModalHabitos(){ //visualizar todos os hábitos do usuário
 function fecharModalHabitos(){
     const modal = document.getElementById("modalListaHabitos")
     modal.style.display = "none"
+    document.body.style.overflow = "auto"
 }
 
 async function listarTodosHabitos(){
@@ -165,12 +171,12 @@ async function listarTodosHabitos(){
 
         //botão editar
         const btnEditar = document.createElement("button")
-        btnEditar.innerText = "✏️"
+        btnEditar.innerHTML = "✏️"
         btnEditar.onclick = () => editarHabito(h)
 
         //botão deletar
         const btnDeletar = document.createElement("button")
-        btnDeletar.innerText = "🗑️"
+        btnDeletar.innerHTML = "🗑️"
         btnDeletar.onclick = () => deletarHabito(h.id)
 
         item.appendChild(texto)
@@ -201,6 +207,7 @@ function editarHabito(habito){
     checkboxes.forEach(cb => {
         cb.checked = dias.includes(cb.value)
     })
+
 }
 
 function fecharModalEditar(){
@@ -281,4 +288,13 @@ function mostrarToast(mensagem){
     setTimeout(() => {
         toast.classList.remove("show")
     }, 3000)
+}
+
+async function gerarSugestaoIA(){ //não é a implementação real, as sugestões estão fixas
+
+    const input = document.getElementById("nomeHabitoModal")
+    input.value = "Gerando sugestão..."
+    const resposta = await fetch("http://localhost:8080/ia/sugestao")
+    const texto = await resposta.text()
+    input.value = texto
 }

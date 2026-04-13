@@ -151,6 +151,8 @@ async function carregarGrafico(){ //grafico de estatísticas do usuário
             }]
         },
         options: { //tirando os números quebrados 
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero:true,
